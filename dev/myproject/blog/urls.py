@@ -9,5 +9,4 @@ urlpatterns = [
     path('json/', views.json_test),
     path('file/', views.excel_download),
     path('redirect/', views.get_redirect),
-
 ]

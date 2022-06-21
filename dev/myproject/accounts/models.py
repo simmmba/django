@@ -13,7 +13,6 @@ from django.contrib.sessions.backends.db import SessionStore
 #         user = kwargs['instance']
 
 
-
 # class UserSession(models.Model):
 #     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, editable=False)
 #     session_key = models.CharField(max_length=40, editable=False)
@@ -28,3 +27,8 @@ from django.contrib.sessions.backends.db import SessionStore
 #     UserSession.objects.create(user=user, session_key=session_key)
 
 # user_logged_in.connect(block_duplicate_logins)
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone_number = models.CharField(max_length=20)
+    address = models.CharField(max_length=50)

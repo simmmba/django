@@ -1,20 +1,21 @@
 <h1>{{post.title}}</h1>
 
 <ul>
-{{post.content}}
+    {{post.content}}
 </ul>
 
-<hr/>
+<hr />
 
 <h3>Comments</h3>
 
 <ul>
-{% for comment in post.comment_set.all  %}
+    {% for comment in post.comment_set.all %}
     <li>
-        {{comment.message}}
+        {{comment.message}}&nbsp;&nbsp;
         <small>by {{comment.author}}</small>
         <small>at {{comment.updated_at}}</small>
     </li>
-{% endfor %}
+    {% endfor %}
 </ul>
 
+<a href="/blog">????</a>

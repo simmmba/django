@@ -1,7 +1,7 @@
 <h1>Bookmark List</h1>
 
 <ul>
-    {% for bookmark in object_list %}
+    {% for bookmark in bookmark_list %}
         <li><a href="/bookmark/{{bookmark.id}}">{{bookmark}}</a></li>
     {% endfor %}
 </ul>
