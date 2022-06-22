@@ -1,23 +1,14 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>TheBrains Article</title>
-</head>
-<body>
+{% extends "layout.html" %}
+
+{% block content %}
+
     <h1>TheBrains Article</h1>
 
     <h2>{{ article.title }}</h2>
-    {{ article.body|linebreaks }}
-
-    {% comment %}
-     <p>
+    {{ article.body|linebreaks }}    
+     {% comment %} <p>
         <a href="{% url 'article:edit' article.id %}">[수정]</a>
         <a href="{% url 'article:delete' article.id %}">[삭제]</a><br>
-    </p>
-    {% endcomment %}
+    </p> {% endcomment %}
 
-    <hr/>
-    Copyright © 2003 TheBrains All Right Reserved
-</body>
-</html>
+{% endblock content %}

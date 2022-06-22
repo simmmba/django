@@ -1,23 +1,19 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>TheBrains Article</title>
-</head>
-<body>
+{% extends "layout.html" %}
+
+{% block content %}
+
     <h1>TheBrains Article </h1>
     <form action="" method="get">
         <input type="text" name="q" value="{{q}}" />
-        <input type="submit" value="검색" />
+        <input type="submit" value="search" />
     </form>
     
+    <br />
+
     {% for article in article_list %}
-       <li>
-            {{article.id}}
-            {{article.title}}
+        <li>
+            <a href="{% url 'article:detail' article.id %}">{{article.title}}</a>
         </li>
     {% endfor %}
-    <hr/>
-    Copyright © 2003 TheBrains All Right Reserved
-</body>
-</html>
+
+{% endblock content %}

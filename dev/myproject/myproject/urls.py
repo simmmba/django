@@ -24,19 +24,19 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
     path('bookmark/', include('bookmark.urls')),
-    # path('article/', include('article.urls')),
+    path('article/', include('article.urls')),
     # path('mytest/', include('mytest.urls')),
-    # path('book/', include('book.urls')),
+    path('book/', include('book.urls')),
     # path('accounts/', include('accounts.urls')),
     # path('accounts/', include('allauth.urls')),
 ]
 
 
-# if settings.DEBUG:
-#     import debug_toolbar
-#     urlpatterns += [
-#         path('__debug__/', include(debug_toolbar.urls)),
-#     ]
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ]
 
 
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

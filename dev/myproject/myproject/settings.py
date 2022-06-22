@@ -42,10 +42,10 @@ INSTALLED_APPS = [
     'accounts',
     'shop',
     'article',
-    # 'django_extensions',
-    # 'debug_toolbar',
+    'django_extensions',
+    'debug_toolbar',
     # 'mytest',
-    # 'book',
+    'book',
     # 'django.contrib.sites',
     # 'allauth',
     # 'allauth.account',
@@ -62,7 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 INTERNAL_IPS = ['127.0.0.1']
 
@@ -71,7 +71,7 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
+        'DIRS': [  # template ?? ??
             os.path.join(BASE_DIR, 'myproject', 'templates'),
         ],
         'APP_DIRS': True,
