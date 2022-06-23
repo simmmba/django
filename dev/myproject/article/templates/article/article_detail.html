@@ -5,10 +5,14 @@
     <h1>TheBrains Article</h1>
 
     <h2>{{ article.title }}</h2>
-    {{ article.body|linebreaks }}    
-     {% comment %} <p>
-        <a href="{% url 'article:edit' article.id %}">[수정]</a>
-        <a href="{% url 'article:delete' article.id %}">[삭제]</a><br>
-    </p> {% endcomment %}
+    {{ article.body|linebreaks }} 
+    {% if article.photo %}
+        <img src="{{article.photo.url}}">
+    {% endif %}
+    <p>
+        <a href="{% url 'article:edit' article.id %}">[edit]</a>
+        <a href="{% url 'article:delete' article.id %}">[delete]</a><br>
+    </p>
+    <a href="/article">go to list</a>
 
 {% endblock content %}

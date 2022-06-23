@@ -15,6 +15,7 @@ class Article(models.Model):
     title = models.CharField(max_length=100)
     body = models.TextField()
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+    photo = models.ImageField(blank=True, upload_to='article/%Y/%m/%d')
 
     def __str__(self):
         return self.title
