@@ -5,13 +5,14 @@ from django.conf.urls.static import static
 from django.shortcuts import redirect
 
 urlpatterns = [
-    path('', lambda request:redirect('shop:product_list'), name='root'),
+    path('', lambda request: redirect('shop:product_list'),
+         name='root'),  # 간단한 함수일 때, lamda식으로 표현
     path('admin/', admin.site.urls),
     path('shop/', include('shop.urls')),
     path('account/', include('account.urls')),
     path('cart/', include('cart.urls')),
     path('coupons/', include('coupons.urls')),
-    path('orders/',include('orders.urls')),
+    path('orders/', include('orders.urls')),
     path('qna/', include('qna.urls')),
 ]
 
