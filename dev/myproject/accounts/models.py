@@ -8,10 +8,14 @@ from django.db.models.signals import post_save
 from django.contrib.sessions.backends.db import SessionStore
 
 
-# def on_send_mail(sender, **kwargs):
-#     if kwargs['created']:
-#         user = kwargs['instance']
+def on_send_mail(sender, **kwargs):
+    if kwargs['created']:
+        user = kwargs['instance']
+        send_mail('가입인사', '가입을 환영합니다', 'admin@admin.com',
+                  [user.email], fail_silently=False)
 
+
+post_save.connect(on_send_mail, sender=settings.AUTH_USER_MODEL)
 
 # class UserSession(models.Model):
 #     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, editable=False)
@@ -27,6 +31,7 @@ from django.contrib.sessions.backends.db import SessionStore
 #     UserSession.objects.create(user=user, session_key=session_key)
 
 # user_logged_in.connect(block_duplicate_logins)
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

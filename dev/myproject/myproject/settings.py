@@ -71,16 +71,17 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [  # template ?? ??
+        'DIRS': [  # template
             os.path.join(BASE_DIR, 'myproject', 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
-            'context_processors': [  # ???? ???? template? ??
+            'context_processors': [  # ???? ???? template
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'article.context_processors.article',
             ],
         },
     },
@@ -122,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
 TIME_ZONE = 'UTC'
 
@@ -150,7 +151,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST = 'smtp.naver.com'
 # EMAIL_PORT = 465
 # EMAIL_HOST_USER = 'purum01@naver.com'
-# EMAIL_HOST_PASSWORD = '비밀번호'
+# EMAIL_HOST_PASSWORD = '????'
 # EMAIL_USE_SSL = True
 
 

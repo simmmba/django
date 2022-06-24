@@ -8,10 +8,21 @@ from .forms import SignupForm
 
 
 def signup(request):
-    pass
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(settings.LOGIN_URL)
+        else:
+            return redirect('/accounts/signup')
+    else:
+        form = SignupForm()
+    return render(request, 'accounts/signup_form.html', {'form': form})
+
 
 def profile(request):
     return render(request, 'accounts/profile.html')
+
 
 class MyPasswordChangeView(PasswordChangeView):
     success_url = reverse_lazy('profile')
@@ -21,18 +32,20 @@ class MyPasswordChangeView(PasswordChangeView):
         messages.info(self.request, '암호 변경을 완료했습니다.')
         return super().form_valid(form)
 
+
 class MyPasswordResetView(PasswordResetView):
     success_url = reverse_lazy('login')
     template_name = 'accounts/password_reset_form.html'
+
     def form_valid(self, form):
         messages.info(self.request, '암호 변경 메일을 발송하였습니다.')
         return super().form_valid(form)
 
+
 class MyPasswordResetConfirmView(PasswordResetConfirmView):
     success_url = reverse_lazy('login')
     template_name = 'accounts/password_reset_confirm.html'
+
     def form_valid(self, form):
         messages.info(self.request, '암호 리셋을 완료했습니다.')
         return super().form_valid(form)
-
-    
